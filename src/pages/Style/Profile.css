@@ -1,0 +1,15 @@
+/*Facebook*/
+.hover-icon-facebook:hover {
+  color:#3b5998; 
+}
+
+/*Instagram*/
+.hover-icon-instagram:hover {
+    color: #E1306C;
+    
+}
+
+/*Github*/
+  .hover-icon-github:hover {
+    color: rgb(250, 250, 250); 
+}
