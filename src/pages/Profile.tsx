@@ -13,7 +13,9 @@ import {
   IonCardTitle,
   IonIcon
 } from '@ionic/react';
-import { logoFacebook, logoInstagram, logoTwitter } from 'ionicons/icons';
+import { logoFacebook, logoGithub, logoInstagram, logoTwitter } from 'ionicons/icons';
+import './Style/Profile.css';
+import profileGif from './Style/profile.gif';
 
 const iconStyle = {
   fontSize: '24px',
@@ -40,21 +42,25 @@ const Profile: React.FC = () => {
             justifyContent: 'center',
             height: '100%',
             flexDirection: 'column',
-            padding: '20px'
+            padding: '20px',
+            backgroundImage: 'url(https://www.example.com/background.jpg)', // Add a background image
+            backgroundSize: 'cover',
+            backgroundPosition: 'center'
           }}
         >
-          <IonCard style={{ width: '100%', maxWidth: '500px' }}>
-            <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
+          <IonCard style={{ width: '100%', maxWidth: '500px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)' }}>
+            <img alt="Profile" src={profileGif} style={{ display: 'block', borderRadius: '50%', width: '300px', margin: '20px auto' }} />
+            
             <IonCardHeader>
-              <IonCardTitle>John Doe</IonCardTitle>
-              <IonCardSubtitle>Software Developer</IonCardSubtitle>
+              <IonCardTitle style={{ textAlign: 'center' }}>Arj Escape</IonCardTitle>
+              <IonCardSubtitle style={{ textAlign: 'center' }}>3rd Year Student</IonCardSubtitle>
             </IonCardHeader>
-            <IonCardContent>
+            <IonCardContent style={{ textAlign: 'center' }}>
               <p>Passionate developer with experience in building web and mobile applications.</p>
               <div style={{ display: 'flex', justifyContent: 'center', marginTop: '10px' }}>
-                <IonIcon icon={logoFacebook} style={{ ...iconStyle, color: '#3b5998' }} className="hover-icon" />
-                <IonIcon icon={logoInstagram} style={{ ...iconStyle, color: '#E1306C' }} className="hover-icon" />
-                <IonIcon icon={logoTwitter} style={{ ...iconStyle, color: '#1DA1F2' }} className="hover-icon" />
+                <IonIcon icon={logoFacebook} style={{ ...iconStyle }} className="hover-icon-facebook" />
+                <IonIcon icon={logoInstagram} style={{ ...iconStyle }} className="hover-icon-instagram" />
+                <IonIcon icon={logoGithub} style={{ ...iconStyle }} className="hover-icon-github" />
               </div>
             </IonCardContent>
           </IonCard>
@@ -65,10 +71,3 @@ const Profile: React.FC = () => {
 };
 
 export default Profile;
-
-// Add the following CSS to your global stylesheet or in a CSS-in-JS solution
-/*
-.hover-icon:hover {
-  color: #000; // Change to desired hover color
-}
-*/

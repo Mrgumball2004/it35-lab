@@ -48,6 +48,7 @@ import {
                 </IonItem>
               </IonMenuToggle>
             ))}
+
             <IonButton
               routerLink="/it35-lab"
               routerDirection="back"
@@ -59,6 +60,7 @@ import {
             </IonButton>
           </IonContent>
         </IonMenu>
+
         <IonRouterOutlet id="main">
           <Route exact path="/it35-lab/app/home" component={Home} />
           <Route exact path="/it35-lab/app/about" component={About} />
