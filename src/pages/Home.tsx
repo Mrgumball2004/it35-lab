@@ -31,23 +31,25 @@ const Home: React.FC = () => {
   return (
     <IonReactRouter>
         <IonTabs>
+
+          {/*Mao ni tong para nara sa ubos ang buttons*/}
           <IonTabBar slot="bottom">
             {tabs.map((item, index) => (
               <IonTabButton key={index} tab={item.tab} href={item.url}>
-                <IonIcon icon={item.icon} />
-                <IonLabel>{item.name}</IonLabel>
+          <IonIcon icon={item.icon} />
+          <IonLabel>{item.name}</IonLabel>
               </IonTabButton>
             ))}
             
           </IonTabBar>
-        <IonRouterOutlet>
-          <Route exact path="/it35-lab/app/home/feed" render={Feed} />
-          <Route exact path="/it35-lab/app/home/search" render={Search} />
-          <Route exact path="/it35-lab/app/home/favorites" render={Favorites} />
-          <Route exact path="/it35-lab/app/home">
-            <Redirect to="/it35-lab/app/home/feed" />
-          </Route>
-        </IonRouterOutlet>
+          <IonRouterOutlet>
+            <Route exact path="/it35-lab/app/home/feed" render={Feed} />
+            <Route exact path="/it35-lab/app/home/search" render={Search} />
+            <Route exact path="/it35-lab/app/home/favorites" render={Favorites} />
+            <Route exact path="/it35-lab/app/home">
+              <Redirect to="/it35-lab/app/home/feed" />
+            </Route>
+          </IonRouterOutlet>
         </IonTabs>
       </IonReactRouter>
     );
