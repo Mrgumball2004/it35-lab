@@ -16,7 +16,7 @@
 .profile-border {
   display: block;
   border-radius: 50%;
-  width: 300px;
+  width: 150px;
   margin: 20px auto;
 }
 
@@ -44,7 +44,7 @@
 .profile-description{
   width: 100%; 
  justify-content: center;
-  margin-bottom: 230px;
+  margin-bottom: auto;
 }
 
 .whole-ion-content {
