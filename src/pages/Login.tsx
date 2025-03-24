@@ -1,88 +1,106 @@
-import { 
-    IonAvatar,
+import {
+  IonAvatar,
   IonButton,
   IonButtons,
-    IonCard,
-    IonCardContent,
-    IonCardHeader,
-    IonCardSubtitle,
-    IonCardTitle,
-    IonContent,
-    IonHeader,
-    IonInput,
-    IonInputPasswordToggle,
-    IonItem,
-    IonLabel,
-    IonList,
-    IonMenuButton,
-    IonPage,
-    IonThumbnail,
-    IonTitle,
-    IonToolbar,
-    useIonRouter,
-  } from "@ionic/react";
-  
-  const Login: React.FC = () => {
+  IonCard,
+  IonCardContent,
+  IonCardHeader,
+  IonCardTitle,
+  IonContent,
+  IonHeader,
+  IonIcon,
+  IonInput,
+  IonInputPasswordToggle,
+  IonItem,
+  IonLabel,
+  IonList,
+  IonMenuButton,
+  IonPage,
+  IonTitle,
+  IonToolbar,
+  useIonRouter,
+} from "@ionic/react";
+import { useIonToast } from "@ionic/react";
+import { useState } from "react";
+import { Link } from "react-router-dom";
+
+const Login: React.FC = () => {
+  const [present] = useIonToast();
   const navigation = useIonRouter();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState(false);
+
+  const presentToast = (position: "top" | "middle" | "bottom") => {
+    present({
+      color: "danger",
+      message: "Error, Invalid password or email!",
+      duration: 1500,
+      position: position,
+    });
+  };
+
   const doLogin = () => {
+    if (email === "admin@gmail.com" && password === "password") {
       navigation.push("/it35-lab/app", "forward", "replace");
-    };
+    } else {
+      presentToast("top");
+      setError(true);
+    }
+  };
+
   return (
-      //HEADER
-  <IonPage>
-  <IonHeader>
-  <IonToolbar>
-  <IonTitle>Login</IonTitle>
-  </IonToolbar>
-  </IonHeader>
-  
-        <IonContent className="ion-padding">
-          <IonCard>
-            <IonCardHeader>
-              <IonCardTitle></IonCardTitle>
-            </IonCardHeader>
-            <IonCardContent>
-              <IonList>
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    height: "100%",
-                  }}
+    <IonPage>
+      <IonHeader>
+        <IonToolbar>
+          <IonTitle>Login</IonTitle>
+        </IonToolbar>
+      </IonHeader>
+      <IonContent className="">
+        <IonCard style={{ height: "90%" }}>
+          <IonCardHeader>
+            <IonCardTitle></IonCardTitle>
+          </IonCardHeader>
+          <IonCardContent>
+            <IonList>
+              <div>
+                <IonLabel position="stacked">Email</IonLabel>
+                <IonInput
+                  type="email"
+                  value={email}
+                  onIonChange={(e) => setEmail(e.detail.value!)}
+                  fill="outline"
+                  errorText="Invalid email"
+                />
+              </div>
+              <div style={{ marginTop: 10 }}>
+                <IonLabel position="stacked">Password</IonLabel>
+                <IonInput
+                  type="password"
+                  value={password}
+                  onIonChange={(e) => setPassword(e.detail.value!)}
+                  placeholder="************"
+                  fill="outline"
+                  style={{ marginTop: 0 }}
                 >
-                  <IonAvatar>
-                    <img
-                      alt="Silhouette of a person's head"
-                      src="https://ionicframework.com/docs/img/demos/avatar.svg"
-                    />
-                  </IonAvatar>
-                </div>
-                <IonItem>
-                  <IonInput
-                    label="USERNAME"
-                    placeholder="Enter username..."
-                  ></IonInput>
-                </IonItem>
-                <IonItem>
-                  <IonInput
-                    type="password"
-                    label="PASSWORD"
-                    value="NeverGonnaGiveYouUp"
-                  >
-                    <IonInputPasswordToggle slot="end"></IonInputPasswordToggle>
-                  </IonInput>
-                </IonItem>
-                <IonButton onClick={() => doLogin()} expand="full">
-                  Login
-                </IonButton>
-              </IonList>
-            </IonCardContent>
-          </IonCard>
-  </IonContent>
-  </IonPage>
-
+                  <IonInputPasswordToggle slot="end" />
+                </IonInput>
+              </div>
+              <IonButton onClick={() => doLogin()} expand="block" style={{ marginTop: 20 }}>
+                Login
+              </IonButton>
+              <div style={{ textAlign: "center", marginTop: "80%" }}>
+                <span>Don't have an account yet? </span>
+              </div>
+              <IonButton routerLink="/it35-lab/signup" expand="block" style={{ marginTop: 10 }}>
+                Signup
+              </IonButton>
+            </IonList>
+          </IonCardContent>
+        </IonCard>
+      </IonContent>
+    </IonPage>
   );
-  };  
+};
 
-  export default Login;
+export default Login;
