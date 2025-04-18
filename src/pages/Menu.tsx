@@ -18,7 +18,6 @@ import {
     import { IonApp, setupIonicReact } from "@ionic/react";
     import { IonReactRouter } from "@ionic/react-router";
     import Home from "./Home";
-    import Profile from "./Profile";
     import About from "./About";
     import { homeOutline, rocketOutline, logOutOutline, personOutline } from 'ionicons/icons';
 
@@ -26,7 +25,6 @@ import {
     const path = [
         { name: "Home", url: "/it35-lab/app/home", icon: homeOutline },
         { name: "About", url: "/it35-lab/app/about", icon: rocketOutline },
-        { name: "Profile", url: "/it35-lab/app/Profile", icon:personOutline},
       ];
 
     return (
@@ -64,9 +62,8 @@ import {
         <IonRouterOutlet id="main">
           <Route exact path="/it35-lab/app/home" component={Home} />
           <Route exact path="/it35-lab/app/about" component={About} />
-          <Route exact path="/it35-lab/app/Profile" component={Profile} />
           <Route exact path="/it35-lab/app">
-            <Redirect to="/it35-lab/app/home" />
+           <Redirect to="/it35-lab/app/home" />
           </Route>
         </IonRouterOutlet>
       </IonSplitPane>
