@@ -17,6 +17,8 @@ import {
     import Home from "./Home";
     import About from "./About";
     import Profile from "./Profile";
+    import { supabase } from '../utils/supabaseClient';
+    import { useState } from 'react';
 
   const Menu: React.FC = () => {
     const path = [
@@ -27,6 +29,8 @@ import {
       ];
 
     return (
+      
+      
       <IonPage>
       <IonSplitPane contentId="main">
         <IonMenu contentId="main">
@@ -47,7 +51,7 @@ import {
             ))}
 
               <IonButton routerLink="/it35-lab" routerDirection="back" expand="full">
-                           
+
               <IonIcon icon={logOutOutline} slot="start"></IonIcon>
               <IonIcon icon="logOutline" slot="start"></IonIcon>
               Logout
@@ -69,3 +73,15 @@ import {
   };
   
   export default Menu;
+
+function setShowToast(arg0: boolean) {
+  throw new Error("Function not implemented.");
+}
+function setErrorMessage(message: string) {
+  throw new Error("Function not implemented.");
+}
+
+function setShowAlert(arg0: boolean) {
+  throw new Error("Function not implemented.");
+}
+
