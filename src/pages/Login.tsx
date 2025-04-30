@@ -14,6 +14,7 @@ import {
   IonTitle,
   IonToolbar,
   useIonRouter,
+  IonText,
 } from "@ionic/react";
 import { useIonToast } from "@ionic/react";
 import { useState } from "react";
@@ -73,6 +74,7 @@ const Login: React.FC = () => {
             <div>
               <IonLabel position="stacked">Email</IonLabel>
               <IonInput
+                color={"success"}
                 type="email"
                 value={email}
                 onIonChange={(e) => setEmail(e.detail.value!)}
@@ -83,6 +85,7 @@ const Login: React.FC = () => {
             <div style={{ marginTop: 10 }}>
               <IonLabel position="stacked">Password</IonLabel>
               <IonInput
+                color={"success"}
                 type="password"
                 value={password}
                 onIonChange={(e) => setPassword(e.detail.value!)}
@@ -90,16 +93,18 @@ const Login: React.FC = () => {
                 fill="outline"
                 style={{ marginTop: 0 }}
               >
-                <IonInputPasswordToggle slot="end" />
+                <IonInputPasswordToggle color={"success"} slot="end" />
               </IonInput>
             </div>
-            <IonButton onClick={() => doLogin()} expand="block" style={{ marginTop: 20 }}>
-            Login
+            <IonButton color="success" onClick={() => doLogin()} expand="block" style={{ marginTop: 20 }}>
+              <IonText style={{ color: 'white' }}>
+                Login
+              </IonText>
             </IonButton>
 
             <div style={{ textAlign: "center", marginTop: 15 }}>
             <span>Don't have an account yet? </span>
-            <a href="/it35-lab/signup" style={{ color: "0057FF", textDecoration: "none" }}>
+            <a href="/it35-lab/signup" style={{ color: "#3EB489", textDecoration: "none" }}>
             Signup
             </a>
             </div>

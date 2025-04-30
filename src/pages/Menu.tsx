@@ -22,7 +22,7 @@ import {
 
   const Menu: React.FC = () => {
     const path = [
-        { name: "Home", url: "/it35-lab/app/home", icon: homeOutline },
+        { name: "Home", url: "/it35-lab/app/home", icon: homeOutline},
         { name: "About", url: "/it35-lab/app/about", icon: rocketOutline },
         { name: "Profile", url: "/it35-lab/app/profile", icon: settingsOutline },
         
@@ -50,7 +50,7 @@ import {
               </IonMenuToggle>
             ))}
 
-              <IonButton routerLink="/it35-lab" routerDirection="back" expand="full">
+              <IonButton color="success" routerLink="/it35-lab" routerDirection="back" expand="full">
 
               <IonIcon icon={logOutOutline} slot="start"></IonIcon>
               <IonIcon icon="logOutline" slot="start"></IonIcon>

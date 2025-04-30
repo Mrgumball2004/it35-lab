@@ -184,7 +184,7 @@ import React, { useState, useRef, useEffect } from "react";
        </IonHeader>
        <IonContent className="ion-padding">
          <IonItem>
-           <IonText color="secondary">
+           <IonText color="success">
              <h1>Edit Account</h1>
            </IonText>
          </IonItem>
@@ -208,8 +208,10 @@ import React, { useState, useRef, useEffect } from "react";
                  onChange={handleAvatarChange}
                />
  
-               <IonButton expand="block" onClick={() => fileInputRef.current?.click()}>
+               <IonButton color={'success'} expand="block" onClick={() => fileInputRef.current?.click()}>
+                <IonText style={{ color: 'white' }}>
                  Upload Avatar
+                </IonText>
                </IonButton>
              </IonCol>
            </IonRow>
@@ -220,6 +222,7 @@ import React, { useState, useRef, useEffect } from "react";
            <IonRow>
              <IonCol>
                <IonInput
+               color={'success'}
                  label="Username"
                  type="text"
                  labelPlacement="floating"
@@ -233,6 +236,7 @@ import React, { useState, useRef, useEffect } from "react";
            <IonRow>
              <IonCol size="6">
                <IonInput
+                  color={'success'}
                  label="First Name"
                  type="text"
                  labelPlacement="floating"
@@ -244,6 +248,7 @@ import React, { useState, useRef, useEffect } from "react";
              </IonCol>
              <IonCol size="6">
                <IonInput
+                  color={'success'}
                  label="Last Name"
                  type="text"
                  labelPlacement="floating"
@@ -257,11 +262,12 @@ import React, { useState, useRef, useEffect } from "react";
          </IonGrid>
          <IonGrid>
            <IonRow>
-             <IonText color="secondary">
+             <IonText color="success">
                <h3>Change Password</h3>
              </IonText>
              <IonCol size="12">
                <IonInput
+                  color={'success'} 
                  label="New Password"
                  type="password"
                  labelPlacement="floating"
@@ -270,7 +276,7 @@ import React, { useState, useRef, useEffect } from "react";
                  value={password}
                  onIonChange={(e) => setPassword(e.detail.value!)}
                >
-                 <IonInputPasswordToggle slot="end" />
+                 <IonInputPasswordToggle color={'success'} slot="end" />
                </IonInput>
              </IonCol>
            </IonRow>
@@ -280,6 +286,7 @@ import React, { useState, useRef, useEffect } from "react";
            <IonRow>
              <IonCol size="12">
                <IonInput
+                  color={'success'}
                  label="Confirm Password"
                  type="password"
                  labelPlacement="floating"
@@ -288,7 +295,7 @@ import React, { useState, useRef, useEffect } from "react";
                  value={confirmPassword}
                  onIonChange={(e) => setConfirmPassword(e.detail.value!)}
                >
-                 <IonInputPasswordToggle slot="end" />
+                 <IonInputPasswordToggle color={'success'} slot="end" />
                </IonInput>
              </IonCol>
            </IonRow>
@@ -297,11 +304,12 @@ import React, { useState, useRef, useEffect } from "react";
          {/* Current Password Field */}
          <IonGrid>
            <IonRow>
-             <IonText color="secondary">
+             <IonText color="success">
                <h3>Confirm Changes</h3>
              </IonText>
              <IonCol size="12">
                <IonInput
+                  color={'success'}
                  label="Current Password"
                  type="password"
                  labelPlacement="floating"
@@ -310,13 +318,13 @@ import React, { useState, useRef, useEffect } from "react";
                  value={currentPassword}
                  onIonChange={(e) => setCurrentPassword(e.detail.value!)}
                >
-                 <IonInputPasswordToggle slot="end" />
+                 <IonInputPasswordToggle color={'success'} slot="end" />
                </IonInput>
              </IonCol>
            </IonRow>
          </IonGrid>
  
-         <IonButton expand="full" onClick={handleUpdate} shape="round">
+         <IonButton color={'success'} expand="full" onClick={handleUpdate} shape="round">
            Update Account
          </IonButton>
  

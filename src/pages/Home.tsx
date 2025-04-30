@@ -24,9 +24,9 @@ import Search from './home-tabs/Search';
 
 const Home: React.FC = () => {
   const tabs = [
-    {name:'Feed', tab:'feed',url: '/it35-lab/app/home/feed', icon: bookOutline},
-    {name:'Search', tab:'search', url: '/it35-lab/app/home/search', icon: search},
-    {name:'Favorites',tab:'favorites', url: '/it35-lab/app/home/favorites', icon: star},
+    {name:'Feed', tab:'feed',url: '/it35-lab/app/home/feed', icon: bookOutline, color: 'success'},
+    {name:'Search', tab:'search', url: '/it35-lab/app/home/search', icon: search, color: 'success'},
+    {name:'Favorites',tab:'favorites', url: '/it35-lab/app/home/favorites', icon: star, color: 'success'},
   ]
   return (
     <IonReactRouter>
@@ -36,8 +36,8 @@ const Home: React.FC = () => {
           <IonTabBar slot="bottom">
             {tabs.map((item, index) => (
               <IonTabButton key={index} tab={item.tab} href={item.url}>
-          <IonIcon icon={item.icon} />
-          <IonLabel>{item.name}</IonLabel>
+          <IonIcon color='success' icon={item.icon} />
+          <IonLabel style={{ color: 'WHITE' }} >{item.name}</IonLabel>
               </IonTabButton>
             ))}
             

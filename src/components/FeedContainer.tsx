@@ -139,22 +139,24 @@ const FeedContainer = () => {
           <>
             <IonCard>
               <IonCardHeader>
-                <IonCardTitle>Create Post</IonCardTitle>
+                <IonCardTitle color={"success"}>Create Post</IonCardTitle>
               </IonCardHeader>
               <IonCardContent>
                 <IonInput
                   value={postContent}
                   onIonChange={e => setPostContent(e.detail.value!)}
+                  color={"success"}
                   placeholder="Write a post..."
                 />
               </IonCardContent>
-              <div style={{ display: 'flex', justifyContent: 'flex-end', padding: '0.5rem' }}>
-                <IonButton onClick={createPost}>Post</IonButton>
+              
+              <div style={{display: 'flex', justifyContent: 'flex-end', padding: '0.5rem' }}>
+                <IonButton color="success" onClick={createPost}>Post</IonButton>
               </div>
             </IonCard>
   
             {posts.map(post => (
-              <IonCard key={post.post_id} style={{ marginTop: '2rem' }}>
+              <IonCard key={post.post_id} style={{ marginTop: '2rem'}}>
                 <IonCardHeader>
                   <IonRow>
                     <IonCol size="1.85">
@@ -163,7 +165,7 @@ const FeedContainer = () => {
                       </IonAvatar>
                     </IonCol>
                     <IonCol>
-                      <IonCardTitle style={{ marginTop: '10px' }}>{post.username}</IonCardTitle>
+                      <IonCardTitle color={"success"} style={{ marginTop: '10px' }}>{post.username}</IonCardTitle>
                       <IonCardSubtitle>{new Date(post.post_created_at).toLocaleString()}</IonCardSubtitle>
                     </IonCol>
                     <IonCol size="auto">
@@ -177,14 +179,14 @@ const FeedContainer = () => {
                           })
                         }
                       >
-                        <IonIcon color="secondary" icon={pencil} />
+                        <IonIcon style={{ color: '#3EB489' }} icon={pencil} />
                       </IonButton>
                     </IonCol>
                   </IonRow>
                 </IonCardHeader>
   
                 <IonCardContent>
-                  <IonText style={{ color: 'white' }}>
+                  <IonText color={"success"}>
                     <h1>{post.post_content}</h1>
                   </IonText>
                 </IonCardContent>
@@ -198,6 +200,7 @@ const FeedContainer = () => {
                 >
                   <IonButton
                     fill="clear"
+                    color="success"
                     onClick={() => {
                       startEditingPost(post);
                       setPopoverState({ open: false, event: null, postId: null });
@@ -224,10 +227,11 @@ const FeedContainer = () => {
         )}
       </IonContent>
   
-      <IonModal isOpen={isModalOpen} onDidDismiss={() => setIsModalOpen(false)}>
+ 
+      <IonModal  isOpen={isModalOpen} onDidDismiss={() => setIsModalOpen(false)}>
         <IonHeader>
           <IonToolbar>
-            <IonTitle>Edit Post</IonTitle>
+            <IonTitle color={"success"}>Edit Post</IonTitle>
           </IonToolbar>
         </IonHeader>
         <IonContent>
@@ -235,20 +239,22 @@ const FeedContainer = () => {
             value={postContent}
             onIonChange={e => setPostContent(e.detail.value!)}
             placeholder="Edit your post..."
+            color={"success"}
           />
         </IonContent>
         <IonFooter>
-          <IonButton onClick={savePost}>Save</IonButton>
-          <IonButton onClick={() => setIsModalOpen(false)}>Cancel</IonButton>
+          <IonButton color={"success"} onClick={savePost}>Save</IonButton>
+          <IonButton color={"danger"} onClick={() => setIsModalOpen(false)}>Cancel</IonButton>
         </IonFooter>
       </IonModal>
+
   
       <IonAlert
         isOpen={isAlertOpen}
         onDidDismiss={() => setIsAlertOpen(false)}
         header="Success"
         message="Post updated successfully!"
-        buttons={['OK']}
+        buttons={[ 'OK' ]}
       />
     </>
   );
