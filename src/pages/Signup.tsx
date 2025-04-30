@@ -15,6 +15,7 @@ import {
     IonToolbar,
     IonAlert,
     IonModal,
+    IonText,
   } from "@ionic/react";
   import { useIonToast } from "@ionic/react";
   import { useState } from "react";
@@ -112,6 +113,7 @@ import {
               <IonList>
                 <IonLabel position="stacked">Username</IonLabel>
                 <IonInput
+                  color={"success"}
                   fill="outline"
                   type="text"
                   placeholder="Enter a unique username"
@@ -121,6 +123,7 @@ import {
                 <div style={{ marginTop: 10 }}>
                   <IonLabel position="stacked">Email</IonLabel>
                   <IonInput
+                    color={"success"}
                     type="email"
                     placeholder="Enter a valid nbsc.edu.ph email"
                     value={email}
@@ -131,37 +134,41 @@ import {
                 <div style={{ marginTop: 10 }}>
                   <IonLabel position="stacked">Password</IonLabel>
                   <IonInput
+                    color={"success"}
                     type="password"
                     value={password}
                     onIonChange={(e) => setPassword(e.detail.value!)}
                     placeholder="************"
                     fill="outline"
                   >
-                    <IonInputPasswordToggle slot="end" />
+                    <IonInputPasswordToggle color={"success"} slot="end" />
                   </IonInput>
                 </div>
                 <div style={{ marginTop: 10 }}>
                   <IonLabel position="stacked">Confirm Password</IonLabel>
                   <IonInput
+                    color={"success"}
                     type="password"
                     value={confirmPassword}
                     onIonChange={(e) => setConfirmPassword(e.detail.value!)}
                     placeholder="************"
                     fill="outline"
                   >
-                    <IonInputPasswordToggle slot="end" />
+                    <IonInputPasswordToggle color={"success"} slot="end" />
                   </IonInput>
                 </div>
                 <IonButton
                   onClick={handleOpenVerificationModal}
                   expand="block"
                   style={{ marginTop: 20 }}
-                >
+                  color="success">
+                  <IonText style={{ color: 'white' }}>
                   Signup
+                  </IonText>
                 </IonButton>
                 <div style={{ textAlign: "center", marginTop: "5%" }}>
                   <span>Already have an account? </span>
-                  <Link to="/it35-lab/">Login</Link>
+                  <Link style={{ color: "#3EB489" }} to="/it35-lab/">Login</Link>
                 </div>
               </IonList>
             </IonCardContent>
